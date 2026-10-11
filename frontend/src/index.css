@@ -1,4 +1,15 @@
 @import "tailwindcss";
+@theme {
+  /* 1. Définition de la variable d'animation globale */
+  --animate-loading-bar: loadingBar 1.5s infinite ease-in-out;
+
+  /* 2. Injection des keyframes correspondantes */
+  @keyframes loadingBar {
+    0% { left: -40%; }
+    50% { left: 100%; width: 40%; }
+    100% { left: 100%; width: 0%; }
+  }
+}
 
 * {
   font-family: sans-serif;
