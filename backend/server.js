@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import express from "express";
 import apiRoutes from "./routes/api.js";
 import { config } from "dotenv";
