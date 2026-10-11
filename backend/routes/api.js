@@ -5,7 +5,7 @@ const apiRoutes = express.Router();
 const storage = multer.diskStorage({
   destination: "public/uploads/",
   filename: (req, file, cb) => {
-    cb(null, Date.now() + "_" + file.originalname);
+    cb(null, file.originalname);
   },
 });
 const upload = multer({ storage });
@@ -16,12 +16,17 @@ apiRoutes.get("/", (req, res) => {
 });
 
 apiRoutes.post("/upload", upload.single("image"), (req, res) => {
-  console.log("EXECUTION");
-  console.log(`/uploads/` + Date.now() + "_" + req.file.originalname);
+  const fileName = req.file.originalname;
+  const files = `/uploads/` + fileName;
   // res.json({
   //   url: `/uploads/` + Date.now() + "-" + req.file.originalname,
   // });
-  res.sendStatus(200);
+  // console.log(res.json());
+  res.json({
+    fileUrl: files,
+    fileName: req.file.originalname,
+    fileDownload: "/api/download/" + fileName,
+  });
 });
 
 apiRoutes.get("/download/:filename", (req, res) => {

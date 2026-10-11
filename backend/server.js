@@ -1,15 +1,21 @@
 import express from "express";
 import apiRoutes from "./routes/api.js";
 import { config } from "dotenv";
+import cors from "cors";
+import "dotenv/config";
 
 config();
 const app = express();
+const port = process.env.PORT;
+const frontend_url = process.env.FRONTEND_ADDRESS;
 
+app.use(
+  cors({
+    origin: frontend_url,
+  }),
+);
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-
-const port = process.env.PORT;
-console.log(port);
 
 app.get("/", (req, res) => {
   res.sendStatus(200);
