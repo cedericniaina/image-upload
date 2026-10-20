@@ -1,14 +1,25 @@
-export default function DropzoneLoading() {
+interface Props {
+  icon?: string;
+  iconAlt?: string;
+  text: string;
+  actionClick?: () => void;
+}
+
+export default function Button({
+  icon,
+  text,
+  iconAlt = "Icon",
+  actionClick,
+}: Props) {
   return (
-    <div className="flex flex-col items-center justify-center gap-3.5 p-6 w-full">
-      {/* Conteneur de la barre de chargement (le fond) */}
-      <div className="w-[200px] h-1.5 bg-gray-200 rounded overflow-hidden relative">
-        {/* La barre de couleur qui s'anime */}
-        <div className="absolute h-full w-2/5 bg-blue-500 rounded left-0 animate-pulse"></div>
-      </div>
-      <p className="font-sans text-sm font-medium text-gray-600 m-0">
-        Please wait...
-      </p>
-    </div>
+    <button
+      onClick={actionClick}
+      className="flex flex-row justify-between bg-accent border-border hover:scale-105 active:scale-95 px-2 my-2 h-10 w-27 rounded-md"
+    >
+      <div className="flex h-full w-7 justify-center">
+        <img src={icon} alt={iconAlt} className="m-auto w-5 h-5" />
+      </div>{" "}
+      <p className="m-auto pl-1 w-full">{text}</p>
+    </button>
   );
 }
