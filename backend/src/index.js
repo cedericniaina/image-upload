@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import express from "express";
-import apiRoutes from "./routes/api.js";
+import apiRoutes from "../routes/api.js";
 import cors from "cors";
 import "dotenv/config";
 
@@ -22,8 +22,9 @@ app.get("/", (req, res) => {
 
 app.use("/api", apiRoutes);
 
-// app.listen(port, () => {
-//   console.log(`Server is running at http://localhost:${port}`);
-// });
-
+if (process.env.NODE_ENV !== "production") {
+  app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+  });
+}
 export default app;
