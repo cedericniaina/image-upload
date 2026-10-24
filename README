@@ -1,3 +1,43 @@
-# Image-Upload
+# Simple Image Uploader
 
-A devChallenge.io challenge
+A fullstack application that allows users to upload images directly from the browser.
+
+## Demo
+
+🔗 [Live Demo](https://image-upload-ced.vercel.app/)
+
+## Features
+
+- Drag & Drop to upload an image
+- Local file selector
+- Loading indicator during upload
+- Image preview after successful upload
+- Copy image URL to clipboard
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | React + Tailwind CSS |
+| Backend | Node.js (Express.js) |
+| Deployment | Vercel (frontend) + Render (backend) |
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js installed
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/simple-image-uploader.git
+cd simple-image-uploader
+
+# Install dependencies
+npm install
+
+# Run the project
+npm run dev   
