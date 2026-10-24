@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", apiRoutes);
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV != "production") {
   app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
   });
